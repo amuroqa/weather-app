@@ -1,5 +1,5 @@
 // Clave de acceso a la API de OpenWeatherMap
-const API_KEY = 'tu_api_key'
+const API_KEY = '9dc4dbbbb4ce79a598d742778cdab7bd'
 const button=document.querySelector('.button');
 const input=document.querySelector('input')
 const main=document.querySelector('main')
