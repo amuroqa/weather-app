@@ -10,6 +10,8 @@ const fetchClima = async (ciudad) => {
     const respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}&units=metric&lang=es`)
     const datos = await respuesta.json()
     
+    
+    
     // Si la API devuelve 404 la ciudad no existe, muestra error y detiene la función
     if(datos.cod==='404'){
         main.innerHTML=`<p>Ciudad no encontrada</p>`
