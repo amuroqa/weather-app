@@ -6,12 +6,11 @@ const main=document.querySelector('main')
 
 // Función asíncrona que recibe una ciudad y consulta la API
 const fetchClima = async (ciudad) => {
+    
     // Petición a la API con la ciudad, la key, unidades en celsius y respuesta en español
     const respuesta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}&units=metric&lang=es`)
-    const datos = await respuesta.json()
-    
-    
-    
+     const datos = await respuesta.json()
+    console.log(datos)
     // Si la API devuelve 404 la ciudad no existe, muestra error y detiene la función
     if(datos.cod==='404'){
         main.innerHTML=`<p>Ciudad no encontrada</p>`
@@ -30,6 +29,7 @@ const fetchClima = async (ciudad) => {
                             <p>humedad ${datos.main.humidity}%</p>
                             <p>descripcion: ${datos.weather[0].description}</p>
                             <p>velocidad del viento ${datos.wind.speed}Km/h</p>
+                            <p><a class="enlace-mapa" href="https://www.google.com/maps?q=${datos.coord.lat},${datos.coord.lon}" target="_blank">Ver ubicación de ${datos.name} en Google Maps</a></p>
                         </div>
                      </div>
     `
